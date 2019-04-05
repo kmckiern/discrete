@@ -4,15 +4,13 @@ from collections import OrderedDict
 import dimod
 import dwavebinarycsp as dbc
 
-
 # https://github.com/dwavesystems/factoring-demo/blob/master/factoring/interfaces.py
-
 
 P = 12
 num_reads = 50
 
 ### FORMULATE PROBLEM
-csp = dbc.factories.multiplication_circuit(6)
+csp = dbc.factories.multiplication_circuit(3)
 bqm = dbc.stitch(csp, min_classical_gap=.1)
 
 p_vars = ['p0', 'p1', 'p2', 'p3', 'p4', 'p5']
