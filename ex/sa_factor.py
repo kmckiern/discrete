@@ -5,7 +5,6 @@ import dimod
 import dwavebinarycsp as dbc
 
 # https://github.com/dwavesystems/factoring-demo/blob/master/factoring/interfaces.py
-
 P = 12
 n_bits = 3
 min_classical_gap = 0.1
