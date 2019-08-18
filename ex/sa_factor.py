@@ -14,7 +14,7 @@ n_reads = 50
 csp = dbc.factories.multiplication_circuit(n_bits)
 bqm = dbc.stitch(csp, min_classical_gap=min_classical_gap)
 
-p_vars = ['p{}'.format(i) for i in n_bits*2]
+p_vars = ['p{}'.format(i) for i in range(n_bits*2)]
 fixed_variables = dict(zip(reversed(p_vars), "{:06b}".format(P)))
 fixed_variables = {var: int(x) for (var, x) in fixed_variables.items()}
 for var, value in fixed_variables.items():
@@ -25,8 +25,8 @@ sampler = dimod.SimulatedAnnealingSampler()
 response = sampler.sample(bqm, num_reads=n_reads)
 
 ### RESULTS
-a_vars = ['a{}'.format(i) for i in n_bits]
-b_vars = ['b{}'.format(i) for i in n_bits]
+a_vars = ['a{}'.format(i) for i in range(n_bits)]
+b_vars = ['b{}'.format(i) for i in range(n_bits)]
 if 'num_occurrences' not in response.data_vectors:
     response.data_vectors['num_occurrences'] = [1] * len(response)
 total = sum(response.data_vectors['num_occurrences'])
